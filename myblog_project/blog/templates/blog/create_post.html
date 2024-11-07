@@ -1,0 +1,22 @@
+<!-- create_post.html -->
+{% extends 'blog/base.html' %}
+
+{% block title %}Create a New Post{% endblock %}
+
+{% block content %}
+<h1 class="mt-4">Enter Your Post</h1>
+<form method="post" action="{% url 'create_post' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" name="title" id="title" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="content" class="form-label">Content:</label>
+        <textarea name="content" id="content" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
